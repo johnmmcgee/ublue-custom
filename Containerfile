@@ -20,10 +20,10 @@ ADD github-release-install.sh /tmp/github-release-install.sh
 ## bootc
 RUN wget https://copr.fedorainfracloud.org/coprs/rhcontainerbot/bootc/repo/fedora-"${FEDORA_MAJOR_VERSION}"/bootc-"${FEDORA_MAJOR_VERSION}".repo -O /etc/yum.repos.d/bootc.repo
 RUN rpm-ostree install bootc
-RUN rm -f /etc/yum.repos.d/bootc-"${FEDORA_MAJOR_VERSION}".repoRUN wget https://copr.fedorainfracloud.org/coprs/rhcontainerbot/bootc/repo/fedora-"${FEDORA_MAJOR_VERSION}"/bootc-"${FEDORA_MAJOR_VERSION}".repo -O /etc/yum.repos.d/bootc.repo
+RUN rm -f /etc/yum.repos.d/bootc-"${FEDORA_MAJOR_VERSION}".repo
 
 RUN mkdir -p /var/lib/alternatives
-#    /tmp/akmods.sh && \
+#RUN /tmp/akmods.sh && \
 RUN /tmp/build.sh
 RUN systemctl unmask dconf-update.service
 RUN systemctl enable dconf-update.service
