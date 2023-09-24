@@ -4,6 +4,7 @@
             "all": [
                 "bootc",
                 "buildah",
+                "code",
                 "fira-code-fonts",
                 "highlight",
                 "iperf3",
@@ -23,7 +24,6 @@
                 "virt-install",
                 "virt-manager",
                 "virt-viewer",
-                "vscode",
                 "wireguard-tools",
                 "wl-clipboard",
                 "zsh"
