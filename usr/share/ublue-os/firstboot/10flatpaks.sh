@@ -58,6 +58,6 @@ sudo flatpak install -y --system \
   org.libreoffice.LibreOffice \
 
 echo "Re-enable repos"
-sudo /usr/bin/fedora-third-party
+sudo /usr/bin/fedora-third-party enable
 
 fi
