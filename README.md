@@ -66,7 +66,7 @@ Upon the first time booting and on each update, the system will check if /usr/sh
 
 ## Usage
 
-We build `latest` which now points to Fedora 38 as it has stabilized. But Fedora 37 builds are still available. You can chose a specific version by using the `37` or `38` tag:
+We build `latest` which points to Fedora 38:
 
     # pick any one of these
     sudo rpm-ostree rebase ostree-unverified-registry:ghcr.io/johnmmcgee/silverblue-custom:latest
@@ -78,7 +78,7 @@ We build date tags as well, so if you want to rebase to a particular day's relea
     sudo rpm-ostree rebase ostree-unverified-registry:ghcr.io/johnmmcgee/silverblue-custom:20230302
     sudo rpm-ostree rebase ostree-unverified-registry:ghcr.io/johnmmcgee/silverblue-nvidia-custom:20230302
 
-The `latest` tag will automatically point to the latest stable build, but I suggest using version 37, 38, etc as they become available to avoid surprise upgrades.
+Use the `latest` tag to follow the current latest.  Or you can use the release tag, such as `38`, which is current. 
 
 ## Verification
 
