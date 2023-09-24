@@ -53,12 +53,13 @@
         "exclude": {
             "all": []
         }
+    },
     "39": {
         "include": {
             "all": []
         },
         "exclude": {
             "all": []
-    }
+        }
     }
 }
