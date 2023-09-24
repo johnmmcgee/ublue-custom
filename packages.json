@@ -2,7 +2,6 @@
     "all": {
         "include": {
             "all": [
-                "bootc",
                 "buildah",
                 "code",
                 "fira-code-fonts",
@@ -16,6 +15,8 @@
                 "lsd",
                 "p7zip",
                 "p7zip-plugins",
+                "podmansh",
+                "podman-tui",
                 "powertop",
                 "python3-pip",
                 "source-foundry-hack-fonts",
@@ -37,10 +38,10 @@
             "all": [
                 "firefox",
                 "firefox-langpacks",
-                "htop"
+                "htop",
+                "nvtop"
             ],
             "silverblue": [
-                "gnome-extensions-app",
                 "gnome-tour"
             ]
         }
@@ -52,5 +53,12 @@
         "exclude": {
             "all": []
         }
+    "39": {
+        "include": {
+            "all": []
+        },
+        "exclude": {
+            "all": []
+    }
     }
 }

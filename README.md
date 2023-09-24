@@ -35,6 +35,7 @@ In addition to the packages/config provided by base images, this image:
 - Adds the following packages to the base image:
   - bootc
   - buildah
+  - code
   - fonts (for coding/terminals)
     - fira code
     - hack
@@ -45,7 +46,6 @@ In addition to the packages/config provided by base images, this image:
   - stow
   - tmux
   - [libvirtd/virsh](https://libvirt.org/) and [virt-manager](https://virt-manager.org/) (for installing/running VMs)
-  - vscode
   - [wireguard-tools](https://www.wireguard.com/) (for more VPN)
   - wl-clipboard
   - zsh
