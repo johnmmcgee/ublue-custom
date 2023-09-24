@@ -23,14 +23,13 @@ RUN wget https://copr.fedorainfracloud.org/coprs/rhcontainerbot/bootc/repo/fedor
 RUN mkdir -p /var/lib/alternatives && \
 #    /tmp/akmods.sh && \
     /tmp/build.sh && \
-    /tmp/github-release-install.sh twpayne/chezmoi x86_64.rpm && \
-    pip install --prefix=/usr yafti && \
-    systemctl disable docker.service && \
-    systemctl disable docker.socket && \
+#    /tmp/github-release-install.sh twpayne/chezmoi x86_64.rpm && \
+#    pip install --prefix=/usr yafti && \
+#    systemctl disable docker.service && \
+#    systemctl disable docker.socket && \
     systemctl unmask dconf-update.service && \
     systemctl enable dconf-update.service && \
     systemctl enable rpm-ostree-countme.timer && \
-    systemctl enable tailscaled.service && \
     sed -i 's@enabled=1@enabled=0@g' /etc/yum.repos.d/{bootc,tailscale}.repo && \
     sed -i "s/FEDORA_MAJOR_VERSION/${FEDORA_MAJOR_VERSION}/" /usr/etc/distrobox/distrobox.conf && \
     sed -i "s/FEDORA_MAJOR_VERSION/${FEDORA_MAJOR_VERSION}/" /usr/etc/distrobox/distrobox.ini && \
@@ -44,6 +43,6 @@ RUN mkdir -p /var/lib/alternatives && \
     mkdir -p /tmp /var/tmp && \
     chmod 1777 /tmp /var/tmp
 
-# k8s/container tools
-COPY --from=cgr.dev/chainguard/kubectl:latest /usr/bin/kubectl /usr/bin/kubectl
-COPY --from=docker.io/docker/compose-bin:latest /docker-compose /usr/bin/docker-compose
+## k8s/container tools
+#COPY --from=cgr.dev/chainguard/kubectl:latest /usr/bin/kubectl /usr/bin/kubectl
+#COPY --from=docker.io/docker/compose-bin:latest /docker-compose /usr/bin/docker-compose
