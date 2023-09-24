@@ -23,7 +23,7 @@ RUN rpm-ostree install bootc
 RUN rm -f /etc/yum.repos.d/bootc-"${FEDORA_MAJOR_VERSION}".repo
 
 RUN mkdir -p /var/lib/alternatives
-#RUN /tmp/akmods.sh && \
+#RUN    /tmp/akmods.sh && \
 RUN /tmp/build.sh
 RUN systemctl unmask dconf-update.service
 RUN systemctl enable dconf-update.service

@@ -3,7 +3,6 @@
 SCRIPT_DIR="$(dirname "$0")"
 SCRIPT_NAME="$(basename "$0")"
 
-
 for script in "$SCRIPT_DIR"/*; do
     # Check if the file is executable, not a directory, not the autorun.sh script,
     # and does not start with an underscore
@@ -13,3 +12,5 @@ for script in "$SCRIPT_DIR"/*; do
         "$script"
     fi
 done
+
+read -p "Press Enter to continue..."
