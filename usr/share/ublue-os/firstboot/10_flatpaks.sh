@@ -8,7 +8,9 @@ sudo /usr/lib/fedora-third-party/fedora-third-party-opt-out
 sudo /usr/bin/fedora-third-party disable
 #flatpak remote-delete fedora --force
 #flatpak remove --system --noninteractive --all
+sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 flatpak remote-add --if-not-exists --user flathub https://flathub.org/repo/flathub.flatpakrepo
+
 
 echo "Communication apps ..."
 sudo flatpak install -y --system \
@@ -48,7 +50,7 @@ sudo flatpak install -y --system \
 
 echo "Multimeda applications ..."
 sudo flatpak install -y --system \
-  org.spotify.Client \
+  com.spotify.Client \
   org.videolan.VLC
 
 echo "Productivity applications ..."
