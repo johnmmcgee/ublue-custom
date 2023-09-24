@@ -10,9 +10,6 @@ These images are customized how I want, based on the great work by [team ublue o
 
 Images built:
 - Silverblue (Fedora GNOME immutable desktop)
-- Kinoite (Fedora KDE immutable desktop)
-- Sericea (Fedora Sway immutable desktop)
-*I no longer build Vauxite (XFCE) as the 3 above are official Fedora immutable desktop editions.*
 
 Based on:
 - [ublue-os/main](https://github.com/ublue-os/main) for good foundations
@@ -36,20 +33,24 @@ In addition to the packages/config provided by base images, this image:
   - firefox
   - htop
 - Adds the following packages to the base image:
+  - bootc
+  - buildah
   - fonts (for coding/terminals)
     - fira code
     - hack
   - [kitty](https://sw.kovidgoyal.net/kitty/) terminal
-  - moby-engine (docker's open source version, disabled by default)
+  - lsd
   - p7zip
   - powertop
-  - shotwell (the flatpak version crashes accessing USB)
+  - stow
   - tmux
   - [libvirtd/virsh](https://libvirt.org/) and [virt-manager](https://virt-manager.org/) (for installing/running VMs)
+  - vscode
   - [wireguard-tools](https://www.wireguard.com/) (for more VPN)
+  - wl-clipboard
+  - zsh
   - default font set to Noto Sans
   - gnome shell extensions (appindicator, move-clock, no-overview)
-  - gsconnect (plus dependancies)
 - Sets faster timeout on systemd waiting for shutdown
 - Sets gnome's "APP is not responding" check to 30 seconds
 - Sets some a few custom gnome settings (see etc/dconf)
@@ -57,11 +58,6 @@ In addition to the packages/config provided by base images, this image:
 ## Applications
 
 - Unlike the [ublue base image](https://github.com/ublue-os/base), flatpak applications are installed system wide, but are they are still not on the base image, as they install to /var.
-- Also unlike the [ublue base image](https://github.com/ublue-os/base), the yafti "first run script" only executes for the default user which first logs into the system. We still use that process to customize flatpak refs and install default apps, but it only needs to run once as we install those apps to system.
-- Several applications are available for (optional) install via yafti: [list of applications](https://github.com/bsherman/ublue-custom/blob/main/etc/yafti.yml#L24C5-L101)
-- Lightly-tested scripts for easily enabling/disabling LUKS auto-unlock using TPM2.
-  - `luks-enable-tpm2-autounlock` - backup `/etc/crypttab` and `systemd-cryptenroll`s TPM2 for unlock; requires existing LUKS2 password
-  - `luks-disable-tpm2-autounlock` - restores the backup of `/etc/crypttab` and safely `systemd-cryptenroll` wipes TPM2 unlock slot
 
 ## Further Customization
 
