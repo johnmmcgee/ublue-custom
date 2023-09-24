@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Ublue Desktop FirstBoot Setup
 Comment=Sets up Ublue Desktop Correctly On FirstBoot
-Exec=gnome-terminal -- /usr/share/ublue-os/firstboot/00autorun.sh
+Exec=gnome-terminal -- /usr/share/ublue-os/firstboot/firstboot.sh
 Icon=org.gnome.Terminal
 Type=Application
 Categories=Utility;System;

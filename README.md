@@ -36,9 +36,13 @@ In addition to the packages/config provided by base images, this image:
   - bootc
   - buildah
   - code
-  - fonts (for coding/terminals)
+  - fonts
     - fira code
     - hack
+    - inputmono
+    - outputsans
+    - sanfran
+    - sfmono
   - [kitty](https://sw.kovidgoyal.net/kitty/) terminal
   - lsd
   - p7zip
@@ -46,23 +50,61 @@ In addition to the packages/config provided by base images, this image:
   - stow
   - tmux
   - [libvirtd/virsh](https://libvirt.org/) and [virt-manager](https://virt-manager.org/) (for installing/running VMs)
+  - wallpapers
   - [wireguard-tools](https://www.wireguard.com/) (for more VPN)
   - wl-clipboard
   - zsh
   - default font set to Noto Sans
-  - gnome shell extensions (appindicator, move-clock, no-overview)
 - Sets faster timeout on systemd waiting for shutdown
 - Sets gnome's "APP is not responding" check to 30 seconds
 - Sets some a few custom gnome settings (see etc/dconf)
 
 ## Applications
 
-- Unlike the [ublue base image](https://github.com/ublue-os/base), flatpak applications are installed system wide, but are they are still not on the base image, as they install to /var.
+- The following applications are install system-wide:
+### Communications
+- Discord
+- Slack
+- Signal
+- Telegram
 
+### Gaming
+- Minecraft
+- Steam
+
+### Gnome
+- Disk Usage
+- Calculator
+- Calendar
+- Characters
+- Documenation Viewer
+- Extension Manager
+- Firmware Updater
+- Font Viewer
+- Image Viewer
+- Log Viewer
+- Nautilus Previwer
+- Password / Secrets Manager
+- Text Editor
+- Weather
+
+### Internet
+- Firefox
+- Tor Browser
+
+### Multimedia
+- Spotify
+- VLC
+
+### Productivity
+- LibreOffice
+
+### Utilities
+- Joplin
+- KeePassXC
 ## Further Customization
 
-Upon the first time booting and on each update, the system will check if /usr/share/ublue-os/firstboot/.donotrun exist and if it does not it will go through a series of scripts that do things like install flatpaks and... well that is all it does at the moment.  You can remove this file if you wish for it to run again. 
-
+Upon the first time booting and on each update, the system will check if `$HOME/.firstboot-ran` exist and if it does not it will go through a series of scripts that do things like install flatpaks and... well that is all it does at the moment.  You can remove this file if you wish for it to run again on next update.
 
 ## Usage
 
