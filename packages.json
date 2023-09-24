@@ -3,13 +3,16 @@
         "include": {
             "all": [
                 "bootc",
+                "buildah",
                 "fira-code-fonts",
+                "highlight"
                 "iperf3",
                 "kitty",
                 "langpacks-en",
                 "libretls",
                 "libvirt-client",
                 "libvirt-daemon-kvm",
+                "lsd",
                 "moby-engine",
                 "p7zip",
                 "p7zip-plugins",
@@ -17,25 +20,18 @@
                 "python3-pip",
                 "shotwell",
                 "source-foundry-hack-fonts",
-                "tailscale",
+                "stow",
+                "tmux",
+                "vim",
                 "virt-install",
                 "virt-manager",
-                "virt-viewer"
-            ],
-            "kinoite": [
-                "k3b",
-                "kalendar",
-                "libadwaita",
-                "libadwaita-qt5",
-                "skanlite",
-                "zenity"
-            ],
+                "virt-viewer",
+                "wl-clipboard",
+                "zsh"
+                ],
             "silverblue": [
                 "gnome-shell-extension-appindicator",
-                "gnome-shell-extension-dash-to-dock",
-                "gnome-shell-extension-gsconnect",
                 "gnome-shell-extension-no-overview",
-                "nautilus-gsconnect"
             ]
         },
         "exclude": {
@@ -50,21 +46,9 @@
             ]
         }
     },
-    "37": {
-        "include": {
-            "all": []
-        },
-        "exclude": {
-            "all": []
-        }
-    },
     "38": {
         "include": {
             "all": [],
-            "sericea": [
-                "libadwaita",
-                "zenity"
-            ]
         },
         "exclude": {
             "all": []

@@ -44,16 +44,12 @@ In addition to the packages/config provided by base images, this image:
   - p7zip
   - powertop
   - shotwell (the flatpak version crashes accessing USB)
-  - [tailscale](https://tailscale.com/) (for VPN)
   - tmux
   - [libvirtd/virsh](https://libvirt.org/) and [virt-manager](https://virt-manager.org/) (for installing/running VMs)
   - [wireguard-tools](https://www.wireguard.com/) (for more VPN)
-  - Only on Silverblue: Gnome specific packages
-    - default font set to Noto Sans
-    - gnome shell extensions (appindicator, dash-to-dock, gsconnect, move-clock, no-overview, notifications-reloaded)
-    - gsconnect (plus dependancies)
-  - Only on Kinoite and Sericea
-    - zenity
+  - default font set to Noto Sans
+  - gnome shell extensions (appindicator, move-clock, no-overview)
+  - gsconnect (plus dependancies)
 - Sets faster timeout on systemd waiting for shutdown
 - Sets gnome's "APP is not responding" check to 30 seconds
 - Sets some a few custom gnome settings (see etc/dconf)
