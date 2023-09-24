@@ -2,6 +2,9 @@
 
 SCRIPT_DIR="$(dirname "$0")"
 SCRIPT_NAME="$(basename "$0")"
+DONOTRUN="$SCRIPT_DIR/.donotrun"
+
+[[ -e "$DONOTRUN" ]] && exit 0
 
 for script in "$SCRIPT_DIR"/*; do
     # Check if the file is executable, not a directory, not the autorun.sh script,
@@ -12,5 +15,7 @@ for script in "$SCRIPT_DIR"/*; do
         "$script"
     fi
 done
+
+touch "$DONOTRUN"
 
 read -p "Press Enter to continue..."
