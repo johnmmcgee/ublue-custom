@@ -10,9 +10,7 @@ ARG FEDORA_MAJOR_VERSION="${FEDORA_MAJOR_VERSION:-38}"
 COPY etc /etc
 COPY usr /usr
 
-# add akmods RPMs for installation
-#COPY --from="ghcr.io/bsherman/base-kmods:${FEDORA_MAJOR_VERSION}" /akmods            /tmp/akmods
-#COPY --from="ghcr.io/bsherman/base-kmods:${FEDORA_MAJOR_VERSION}" /akmods-custom-key /tmp/akmods-custom-key
+
 
 ADD packages.json /tmp/packages.json
 #ADD akmods.sh /tmp/akmods.sh

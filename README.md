@@ -1,6 +1,6 @@
 # ublue-custom
 
-[![build-ublue](https://github.com/bsherman/ublue-custom/actions/workflows/build.yml/badge.svg)](https://github.com/bsherman/ublue-custom/actions/workflows/build.yml)
+[![build-ublue](https://github.com/johnmmcgee/ublue-custom/actions/workflows/build.yml/badge.svg)](https://github.com/johnmmcgee/ublue-custom/actions/workflows/build.yml)
 
 Custom Fedora immutable desktop images which are mostly stock, plus the few things that are needed to make life good on my family's laptops.
 
@@ -21,7 +21,7 @@ Based on:
   - sets flatpaks to update twice a day
   - v4l2loopback driver from [ublue-os/akmods](https://github.com/ublue-os/akmods)
   - xpadneo/xone xbox controller drivers from [ublue-os/akmods](https://github.com/ublue-os/akmods)
-- [ublue-os/nvida](https://github.com/ublue-os/nvidia) for nvidia variants adds:
+- [ublue-os/nvidia](https://github.com/ublue-os/nvidia) for nvidia variants adds:
   - nvidia kernel drivers
   - nvidia container runtime
   - nvidia vaapi driver
@@ -106,22 +106,14 @@ Check the [just website](https://just.systems) for tips on modifying and adding 
 We build `latest` which now points to Fedora 38 as it has stabilized. But Fedora 37 builds are still available. You can chose a specific version by using the `37` or `38` tag:
 
     # pick any one of these
-    sudo rpm-ostree rebase ostree-unverified-registry:ghcr.io/bsherman/silverblue-custom:latest
-    sudo rpm-ostree rebase ostree-unverified-registry:ghcr.io/bsherman/silverblue-nvidia-custom:latest
-    sudo rpm-ostree rebase ostree-unverified-registry:ghcr.io/bsherman/kinoite-custom:latest
-    sudo rpm-ostree rebase ostree-unverified-registry:ghcr.io/bsherman/kinoite-nvidia-custom:latest
-    sudo rpm-ostree rebase ostree-unverified-registry:ghcr.io/bsherman/sericea-custom:latest
-    sudo rpm-ostree rebase ostree-unverified-registry:ghcr.io/bsherman/sericea-nvidia-custom:latest
+    sudo rpm-ostree rebase ostree-unverified-registry:ghcr.io/johnmmcgee/silverblue-custom:latest
+    sudo rpm-ostree rebase ostree-unverified-registry:ghcr.io/johnmmcgee/silverblue-nvidia-custom:latest
 
 We build date tags as well, so if you want to rebase to a particular day's release:
   
     # pick any one of these
-    sudo rpm-ostree rebase ostree-unverified-registry:ghcr.io/bsherman/silverblue-custom:20230302
-    sudo rpm-ostree rebase ostree-unverified-registry:ghcr.io/bsherman/silverblue-nvidia-custom:20230302
-    sudo rpm-ostree rebase ostree-unverified-registry:ghcr.io/bsherman/kinoite-custom:20230302
-    sudo rpm-ostree rebase ostree-unverified-registry:ghcr.io/bsherman/kinoite-nvidia-custom:20230302
-    sudo rpm-ostree rebase ostree-unverified-registry:ghcr.io/bsherman/sericea-custom:20230302
-    sudo rpm-ostree rebase ostree-unverified-registry:ghcr.io/bsherman/sericea-nvidia-custom:20230302
+    sudo rpm-ostree rebase ostree-unverified-registry:ghcr.io/johnmmcgee/silverblue-custom:20230302
+    sudo rpm-ostree rebase ostree-unverified-registry:ghcr.io/johnmmcgee/silverblue-nvidia-custom:20230302
 
 The `latest` tag will automatically point to the latest stable build, but I suggest using version 37, 38, etc as they become available to avoid surprise upgrades.
 
@@ -129,9 +121,5 @@ The `latest` tag will automatically point to the latest stable build, but I sugg
 
 These images are signed with sigstore's [cosign](https://docs.sigstore.dev/cosign/overview/). You can verify the signature by downloading the `cosign.pub` key from this repo and running the appropriate command:
 
-    cosign verify --key cosign.pub ghcr.io/bsherman/silverblue-custom
-    cosign verify --key cosign.pub ghcr.io/bsherman/silverblue-nvidia-custom
-    cosign verify --key cosign.pub ghcr.io/bsherman/kinoite-custom
-    cosign verify --key cosign.pub ghcr.io/bsherman/kinoite-nvidia-custom
-    cosign verify --key cosign.pub ghcr.io/bsherman/sericea-custom
-    cosign verify --key cosign.pub ghcr.io/bsherman/sericea-nvidia-custom
+    cosign verify --key cosign.pub ghcr.io/johnmmcgee/silverblue-custom
+    cosign verify --key cosign.pub ghcr.io/johnmmcgee/silverblue-nvidia-custom
