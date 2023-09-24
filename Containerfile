@@ -20,24 +20,20 @@ ADD github-release-install.sh /tmp/github-release-install.sh
 ## bootc
 RUN wget https://copr.fedorainfracloud.org/coprs/rhcontainerbot/bootc/repo/fedora-"${FEDORA_MAJOR_VERSION}"/bootc-"${FEDORA_MAJOR_VERSION}".repo -O /etc/yum.repos.d/bootc.repo
 
-RUN mkdir -p /var/lib/alternatives && \
+RUN mkdir -p /var/lib/alternatives
 #    /tmp/akmods.sh && \
-    /tmp/build.sh && \
-    systemctl unmask dconf-update.service && \
-    systemctl enable dconf-update.service && \
-    systemctl enable rpm-ostree-countme.timer && \
-    sed -i 's@enabled=1@enabled=0@g' /etc/yum.repos.d/bootc.repo && \
-    sed -i "s/FEDORA_MAJOR_VERSION/${FEDORA_MAJOR_VERSION}/" /usr/etc/distrobox/distrobox.conf && \
-    sed -i "s/FEDORA_MAJOR_VERSION/${FEDORA_MAJOR_VERSION}/" /usr/etc/distrobox/distrobox.ini && \
-    sed -i 's/#DefaultTimeoutStopSec.*/DefaultTimeoutStopSec=15s/' /etc/systemd/user.conf && \
-    sed -i 's/#DefaultTimeoutStopSec.*/DefaultTimeoutStopSec=15s/' /etc/systemd/system.conf && \
-    mv /var/lib/alternatives /staged-alternatives && \
-    rm -rf /tmp/* /var/* && \
-    ostree container commit && \
-    mkdir -p /var/lib && mv /staged-alternatives /var/lib/alternatives && \
-    mkdir -p /tmp /var/tmp && \
-    chmod 1777 /tmp /var/tmp
-
-## k8s/container tools
-#COPY --from=cgr.dev/chainguard/kubectl:latest /usr/bin/kubectl /usr/bin/kubectl
-#COPY --from=docker.io/docker/compose-bin:latest /docker-compose /usr/bin/docker-compose
+RUN     /tmp/build.sh
+RUN    systemctl unmask dconf-update.service
+RUN    systemctl enable dconf-update.service
+RUN    systemctl enable rpm-ostree-countme.timer
+RUN    sed -i 's@enabled=1@enabled=0@g' /etc/yum.repos.d/bootc.repo
+RUN    sed -i "s/FEDORA_MAJOR_VERSION/${FEDORA_MAJOR_VERSION}/" /usr/etc/distrobox/distrobox.conf
+RUN    sed -i "s/FEDORA_MAJOR_VERSION/${FEDORA_MAJOR_VERSION}/" /usr/etc/distrobox/distrobox.ini
+RUN    sed -i 's/#DefaultTimeoutStopSec.*/DefaultTimeoutStopSec=15s/' /etc/systemd/user.conf
+RUN    sed -i 's/#DefaultTimeoutStopSec.*/DefaultTimeoutStopSec=15s/' /etc/systemd/system.conf
+RUN    mv /var/lib/alternatives /staged-alternatives
+RUN    rm -rf /tmp/* /var/*
+RUN    ostree container commit
+RUN    mkdir -p /var/lib && mv /staged-alternatives /var/lib/alternatives
+RUN    mkdir -p /tmp /var/tmp
+RUN    chmod 1777 /tmp /var/tmp
