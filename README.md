@@ -61,36 +61,7 @@ In addition to the packages/config provided by base images, this image:
 
 ## Further Customization
 
-A `just` task runner default config is included for further customization after first boot.
-It will copy the template from `/etc/justfile` to your home directory.
-After that run the following commands:
-
-- `just` - Show all tasks, more will be added in the future
-- `just bios` - Reboot into the system bios (Useful for dualbooting)
-- `just changelogs` - Show the changelogs of the pending update
-- `just enroll-secure-boot-key` - use mokutil to import ublue-akmods key for SecureBoot loading of drivers (must follow steps after reboot to import the key)
-- `just set-kargs-nvidia` - set kernel boot args to enable nvidia drivers (needs a reboot)
-- `just setup-firefox-flatpak-vaapi-nvidia` - what it says on the tin?
-- `just update` - Update rpm-ostree, flatpaks, and distroboxes in one command
-- Set up distroboxes for the following images:
-  - `just distrobox-boxkit`
-  - `just distrobox-debian`
-  - `just distrobox-fedora`
-  - `just distrobox-opensuse`
-  - `just distrobox-ubuntu`
-- Install various flatpak collections:
-  - `just setup-flatpaks` - Install a selection of flatpaks (in my case, usually on parents' laptops but not kids')
-  - `just setup-media-flatpaks` - Install Audacity, Inkscape, Kdenlive, Krita, and OBS
-  - `just setup-other-flatpaks` - Install misc stuff mostly used only by me amongst my family
-  - `just setup-gaming-educational` - Install kid friendly drawing, math, programming, and typing games
-  - `just setup-gaming-light` - Install simple games like crosswords, solitaire(cards), mines, bejeweled/tetris clones
-  - `just setup-gaming-linux` - Install Linux/Tux games plus a Tron/lightcycle game
-  - `just setup-gaming-minecraft` - Install PrismLauncher (Minecraft for Java) and Bedrock Edition launcher
-  - `just setup-gaming-serious` - Install Steam, Heroic Game Launcher, Bottles, and community builds of Proton.
-  - `just setup-flatpak-overrides-gaming` - Enable MangoHud by default (hit right Shift-F12 to toggle), and enable Bottles to create apps
-  - `just setup-flatpak-overrides-pwa` - Enable Chromium browsers to create apps
-
-Check the [just website](https://just.systems) for tips on modifying and adding your own recipes.
+Upon the first time booting and on each update, the system will check if /usr/share/ublue-os/firstboot/.donotrun exist and if it does not it will go through a series of scripts that do things like install flatpaks and... well that is all it does at the moment.  You can remove this file if you wish for it to run again. 
 
 
 ## Usage
