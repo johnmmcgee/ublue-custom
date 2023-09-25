@@ -13,3 +13,4 @@ dP                                                      d8888P   d8888P
 
 # Display the ASCII art
 echo -e "$planeteggroll"
+echo "Setup script for new install or upgrade..."

@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "Create XML file so that we can see the imported wallpapers in GNOME
+"
 OUTPUT_FILE="/usr/share/gnome-background-properties/custom.xml"
 
 echo '<?xml version="1.0" encoding="UTF-8"?>' > "$OUTPUT_FILE"
