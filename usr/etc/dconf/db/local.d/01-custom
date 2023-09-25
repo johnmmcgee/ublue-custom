@@ -41,7 +41,7 @@ ambient-enabled=false
 sleep-inactive-ac-type='nothing'
 
 [org/gnome/software]
-allow-updates=false
+allow-updates=true
 download-updates=false
 download-updates-notify=true
 
