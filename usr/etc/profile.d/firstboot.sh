@@ -17,6 +17,7 @@ if [ "$(id -u)" -eq 1000 ] && [ -d "$HOME" ]; then
     if [ "$last_fedora_major" != "$current_fedora_major" ] || [ ! -f "$firstboot_done_file" ]; then
         [ ! -d "$autostart_dir" ] && mkdir -p "$autostart_dir"
         cp -f "$firstbootdesktop" "$autostart_dir"
+        [ ! -d "$firstboot_dir" ] && mkdir -p "$firstboot_dir"
         echo "$current_fedora_major" > "$last_fedora_major_file"
     else
         # we dont need ourselves until next update or major revision.
