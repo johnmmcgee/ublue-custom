@@ -39,3 +39,4 @@ RUN ostree container commit
 RUN mkdir -p /var/lib && mv /staged-alternatives /var/lib/alternatives
 RUN mkdir -p /tmp /var/tmp
 RUN chmod 1777 /tmp /var/tmp
+RUN chmod a+x /usr/share/ublue-os/firstboot/*.sh

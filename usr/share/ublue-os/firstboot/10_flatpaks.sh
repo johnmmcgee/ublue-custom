@@ -58,9 +58,9 @@ if [ "$choice" == "y" ] || [ "$choice" == "Y" ]; then
       org.libreoffice.LibreOffice 
   
     echo "Utilities ..."
-    sudo flatpak install -y --system \  
+    sudo flatpak install -y --system \
       net.cozic.joplin_desktop \
-      org.keepassxc.KeePassXC \
+      org.keepassxc.KeePassXC
 
     echo "Re-enable repos"
     sudo /usr/bin/fedora-third-party enable
