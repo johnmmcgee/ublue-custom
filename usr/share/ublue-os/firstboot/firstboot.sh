@@ -3,6 +3,9 @@
 script_dir="$(dirname "$0")"
 script_name="$(basename "$0")"
 firstboot_dir="$HOME/.config/ublue-os/firstboot/"
+firstboot_done_file="$firstboot_dir/firstboot-done"
+
+[ -f "$last_fedora_major_file" ] && exit 0
 
 for script in "$script_dir"/*; do
     # Check if the file is executable, not a directory, not the firstboot.sh script,
