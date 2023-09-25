@@ -4,9 +4,9 @@ get_fedora_major_version() {
     rpm -E %fedora
 }
 
-firstboot_dir="$HOME/.config/firstboot"
+firstboot_dir="$HOME/.config/ublue-os/firstboot"
 firstboot_done_file="$firstboot_dir/firstboot-done"
-firstboot_desktop="/etc/skel.d/.config/autostart/firstboot.desktop"
+firstboot_desktop="/etc/skel.d/.config/autostart/ublue-firstboot.desktop"
 last_fedora_major_file="$firstboot_dir/last-fedora-major"
 autostart_dir="$HOME/.config/autostart"
 
