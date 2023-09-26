@@ -6,9 +6,16 @@ if [ "$choice" == "y" ] || [ "$choice" == "Y" ]; then
     echo "Disable all repos but flatub for this install .. "
     sudo /usr/lib/fedora-third-party/fedora-third-party-opt-out
     sudo /usr/bin/fedora-third-party disable
-    #flatpak remote-delete fedora --force
-    #flatpak remove --system --noninteractive --all
-    sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+    
+    read -p "Do you want to clean and remove all current system flatpaks? (recommended for first run) (y/n): " choice
+    if [ "$choice" == "y" ] || [ "$choice" == "Y" ]; then
+
+      flatpak remote-delete fedora --force
+      flatpak remove --system --noninteractive --all
+    
+    fi
+    
+    #sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
     flatpak remote-add --if-not-exists --user flathub https://flathub.org/repo/flathub.flatpakrepo
 
 
