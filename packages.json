@@ -25,7 +25,6 @@
                 "virt-install",
                 "virt-manager",
                 "virt-viewer",
-                "wine",
                 "wireguard-tools",
                 "wl-clipboard",
                 "zsh"
