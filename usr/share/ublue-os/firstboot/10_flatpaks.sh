@@ -18,7 +18,7 @@ if [ "$choice" == "y" ] || [ "$choice" == "Y" ]; then
     #sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
     flatpak remote-add --if-not-exists --user flathub https://flathub.org/repo/flathub.flatpakrepo
 
-
+    echo "Installing flatpaks that we wish to be system-wide..."
     echo "Communication apps ..."
     sudo flatpak install -y --system \
       com.discordapp.Discord \
