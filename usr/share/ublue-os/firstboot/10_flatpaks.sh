@@ -69,7 +69,4 @@ if [ "$choice" == "y" ] || [ "$choice" == "Y" ]; then
       net.cozic.joplin_desktop \
       org.keepassxc.KeePassXC
 
-    echo "Re-enable repos"
-    /usr/bin/fedora-third-party enable
-
 fi
