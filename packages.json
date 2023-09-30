@@ -39,7 +39,6 @@
             "all": [
                 "firefox",
                 "firefox-langpacks",
-                "htop",
                 "nvtop"
             ],
             "silverblue": [
