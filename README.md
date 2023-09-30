@@ -2,18 +2,20 @@
 
 [![build-ublue](https://github.com/johnmmcgee/ublue-custom/actions/workflows/build.yml/badge.svg)](https://github.com/johnmmcgee/ublue-custom/actions/workflows/build.yml)
 
-Custom Fedora immutable desktop images which are mostly stock, plus the few things that are needed to make life good on my family's laptops.
+These are mostly stock images that I created for my own personal use.  
+Intial work was forked from: [https://github.com/bsherman/ublue-custom/] (https://github.com/bsherman/ublue-custom/)
 
 ## What is this?
 
-These images are customized how I want, based on the great work by [team ublue os](https://github.com/ublue-os).
+Custom uBlue image based on [Team UBlue os](https://github.com/ublue-os).
+This is a custom version of [Fedora Silverblue] (https://fedoraproject.org/silverblue/), essentially. 
 
 Images built:
 - Silverblue (Fedora GNOME immutable desktop)
 
 Based on:
 - [ublue-os/main](https://github.com/ublue-os/main) for good foundations
-  - adds distrobox, freeworld mesa and media codecs, gnome-tweaks (on gnome), just, nvtop, openssl, pipewire-codec-aptx, ratbagd, vim
+  - adds distrobox, freeworld mesa and media codecs, gnome-tweaks (on gnome), just, openssl, pipewire-codec-aptx, ratbagd, vim
   - sets automatic staging of updates to system
   - sets flatpaks to update twice a day
   - v4l2loopback driver from [ublue-os/akmods](https://github.com/ublue-os/akmods)
@@ -31,7 +33,6 @@ Based on:
 In addition to the packages/config provided by base images, this image:
 - Removes from the base image:
   - firefox
-  - htop
 - Adds the following packages to the base image:
   - bootc
   - buildah

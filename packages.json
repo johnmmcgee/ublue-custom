@@ -34,6 +34,9 @@
             "silverblue": [
                 "gnome-shell-extension-appindicator",
                 "gnome-shell-extension-no-overview"
+            ],
+            "silverblue-nvidia": [
+                "nvtop"
             ]
         },
         "exclude": {
