@@ -38,11 +38,11 @@ if [ "$choice" == "y" ] || [ "$choice" == "Y" ]; then
       org.gnome.Calculator \
       org.gnome.Calendar \
       org.gnome.Characters \
-      org.gnome.eog \
       org.gnome.Evince \
       org.gnome.Firmware \
       org.gnome.font-viewer \
       org.gnome.Logs \
+      org.gnome.Loupe \
       org.gnome.NautilusPreviewer \
       org.gnome.seahorse.Application \
       org.gnome.TextEditor \
