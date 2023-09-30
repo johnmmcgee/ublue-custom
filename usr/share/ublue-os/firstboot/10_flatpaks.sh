@@ -66,6 +66,7 @@ if [ "$choice" == "y" ] || [ "$choice" == "Y" ]; then
     echo "Utilities ..."
     flatpak install -y --system \
       net.cozic.joplin_desktop \
-      org.keepassxc.KeePassXC
+      org.keepassxc.KeePassXC \
+      com.usebottles.bottles
 
 fi
