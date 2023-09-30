@@ -112,18 +112,22 @@ Upon the first time booting and on each update, the system will check if `$HOME/
 We build `latest` which points to Fedora 38:
 
   Standard
-  sudo rpm-ostree rebase ostree-unverified-registry:ghcr.io/johnmmcgee/silverblue-custom:latest
+  
+    sudo rpm-ostree rebase ostree-unverified-registry:ghcr.io/johnmmcgee/silverblue-custom:latest
 
   NVidia drivers
-  sudo rpm-ostree rebase ostree-unverified-registry:ghcr.io/johnmmcgee/silverblue-nvidia-custom:latest
+  
+    sudo rpm-ostree rebase ostree-unverified-registry:ghcr.io/johnmmcgee/silverblue-nvidia-custom:latest
 
 Our you can test out 39:
 
   Standard
-  sudo rpm-ostree rebase ostree-unverified-registry:ghcr.io/johnmmcgee/silverblue-custom:39
+  
+    sudo rpm-ostree rebase ostree-unverified-registry:ghcr.io/johnmmcgee/silverblue-custom:39
 
   NVidia drivers
-  sudo rpm-ostree rebase ostree-unverified-registry:ghcr.io/johnmmcgee/silverblue-nvidia-custom:39
+  
+    sudo rpm-ostree rebase ostree-unverified-registry:ghcr.io/johnmmcgee/silverblue-nvidia-custom:39
 
 Use the `latest` tag to follow the current latest.  Or you can use the release tag, such as `38`, which is current. 
 
