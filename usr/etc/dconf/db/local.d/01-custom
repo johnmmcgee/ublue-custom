@@ -1,6 +1,6 @@
 [org/gnome/shell]
 disable-user-extensions=false
-favorite-apps = ['org.mozilla.firefox.desktop', 'org.gnome.Calendar.desktop', 'org.gnome.Nautilus.desktop', 'com.spotify.Client', 'org.libreoffice.LibreOffice.writer.desktop', 'yelp.desktop']
+favorite-apps = ['org.mozilla.firefox.desktop', 'org.gnome.Calendar.desktop', 'org.gnome.Nautilus.desktop', 'com.spotify.Client.desktop', 'org.libreoffice.LibreOffice.writer.desktop', 'yelp.desktop']
 
 [org/gnome/desktop/interface]
 font-antialiasing='rgba'
