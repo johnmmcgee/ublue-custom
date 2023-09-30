@@ -38,7 +38,6 @@ if [ "$choice" == "y" ] || [ "$choice" == "Y" ]; then
       org.gnome.Calculator \
       org.gnome.Calendar \
       org.gnome.Characters \
-      org.gnome.clocks \
       org.gnome.eog \
       org.gnome.Evince \
       org.gnome.Firmware \
