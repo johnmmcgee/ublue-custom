@@ -28,6 +28,8 @@ RUN /tmp/build.sh
 RUN systemctl unmask dconf-update.service
 RUN systemctl enable dconf-update.service
 RUN systemctl enable rpm-ostree-countme.timer
+RUN rm -f /usr/share/applications/htop.desktop
+RUN rm -f /usr/share/applications/nvtop.desktop
 RUN sed -i 's@enabled=1@enabled=0@g' /etc/yum.repos.d/bootc.repo
 RUN sed -i "s/FEDORA_MAJOR_VERSION/${FEDORA_MAJOR_VERSION}/" /usr/etc/distrobox/distrobox.conf
 RUN sed -i "s/FEDORA_MAJOR_VERSION/${FEDORA_MAJOR_VERSION}/" /usr/etc/distrobox/distrobox.ini

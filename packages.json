@@ -34,16 +34,12 @@
             "silverblue": [
                 "gnome-shell-extension-appindicator",
                 "gnome-shell-extension-no-overview"
-            ],
-            "silverblue-nvidia": [
-                "nvtop"
             ]
         },
         "exclude": {
             "all": [
                 "firefox",
-                "firefox-langpacks",
-                "nvtop"
+                "firefox-langpacks"
             ],
             "silverblue": [
                 "gnome-tour"
