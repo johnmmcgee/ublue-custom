@@ -2,6 +2,7 @@
 disable-user-extensions=false
 favorite-apps = ['org.mozilla.firefox.desktop', 'org.gnome.Calendar.desktop', 'org.gnome.Nautilus.desktop', 'com.spotify.Client', 'org.libreoffice.LibreOffice.writer.desktop', 'yelp.desktop']
 
+# Move install.sh
 [org/gnome/desktop/interface]
 clock-show-weekday=true
 document-font-name="Noto Sans 11"
@@ -11,12 +12,13 @@ font-hinting='slight'
 font-name="Noto Sans 11"
 monospace-font-name='Input Mono weight=275 11'
 
-
+# Move install.sh
 [org/gnome/desktop/peripherals/touchpad]
 tap-to-click=true
 two-finger-scrolling-enabled=true
 natural-scroll=false
 
+# Move install.sh
 [org/gnome/desktop/wm/preferences]
 action-double-click-titlebar='toggle-maximize'
 action-middle-click-titlebar='lower'
@@ -35,10 +37,6 @@ name='gnome-terminal'
 [org/gnome/settings-daemon/plugins/media-keys]
 custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']
 home=['<Super>e']
-
-[org/gnome/settings-daemon/plugins/power]
-ambient-enabled=false
-sleep-inactive-ac-type='nothing'
 
 [org/gnome/software]
 allow-updates=true
