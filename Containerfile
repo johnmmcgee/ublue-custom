@@ -9,36 +9,37 @@ ARG FEDORA_MAJOR_VERSION="${FEDORA_MAJOR_VERSION:-38}"
 
 COPY etc /etc
 COPY usr /usr
-
-
-
-ADD packages.json /tmp/packages.json
-#ADD akmods.sh /tmp/akmods.sh
-ADD build.sh /tmp/build.sh
-ADD github-release-install.sh /tmp/github-release-install.sh
+COPY packages.json /tmp/packages.json
+#COPY akmods.sh /tmp/akmods.sh
+COPY build.sh /tmp/build.sh
+COPY github-release-install.sh /tmp/github-release-install.sh
 
 ## bootc
-RUN wget https://copr.fedorainfracloud.org/coprs/rhcontainerbot/bootc/repo/fedora-"${FEDORA_MAJOR_VERSION}"/bootc-"${FEDORA_MAJOR_VERSION}".repo -O /etc/yum.repos.d/bootc.repo
-RUN rpm-ostree install bootc
-RUN rm -f /etc/yum.repos.d/bootc-"${FEDORA_MAJOR_VERSION}".repo
+RUN wget https://copr.fedorainfracloud.org/coprs/rhcontainerbot/bootc/repo/fedora-"${FEDORA_MAJOR_VERSION}"/bootc-"${FEDORA_MAJOR_VERSION}".repo -O /etc/yum.repos.d/bootc.repo && \
+    rpm-ostree install bootc && \
+    rm -f /etc/yum.repos.d/bootc-"${FEDORA_MAJOR_VERSION}".repo & \\
+    sed -i 's@enabled=1@enabled=0@g' /etc/yum.repos.d/bootc.repo
 
-RUN mkdir -p /var/lib/alternatives
-#RUN    /tmp/akmods.sh && \
-RUN /tmp/build.sh
-RUN systemctl unmask dconf-update.service
-RUN systemctl enable dconf-update.service
-RUN systemctl enable rpm-ostree-countme.timer
-RUN rm -f /usr/share/applications/htop.desktop
-RUN rm -f /usr/share/applications/nvtop.desktop
-RUN sed -i 's@enabled=1@enabled=0@g' /etc/yum.repos.d/bootc.repo
-RUN sed -i "s/FEDORA_MAJOR_VERSION/${FEDORA_MAJOR_VERSION}/" /usr/etc/distrobox/distrobox.conf
-RUN sed -i "s/FEDORA_MAJOR_VERSION/${FEDORA_MAJOR_VERSION}/" /usr/etc/distrobox/distrobox.ini
-RUN sed -i 's/#DefaultTimeoutStopSec.*/DefaultTimeoutStopSec=15s/' /etc/systemd/user.conf
-RUN sed -i 's/#DefaultTimeoutStopSec.*/DefaultTimeoutStopSec=15s/' /etc/systemd/system.conf
-RUN mv /var/lib/alternatives /staged-alternatives
-RUN rm -rf /tmp/* /var/*
+# packages
+RUN mkdir -p /var/lib/alternatives && \
+    /tmp/build.sh
+
+#RUN mv /var/lib/alternatives /staged-alternatives
+#RUN mkdir -p /var/lib && mv /staged-alternatives /var/lib/alternatives
+
+# finalize
+RUN systemctl enable dconf-update.service && \
+    systemctl enable rpm-ostree-countme.timer && \
+    sed -i 's/#DefaultTimeoutStopSec.*/DefaultTimeoutStopSec=15s/' /etc/systemd/user.conf && \
+    sed -i 's/#DefaultTimeoutStopSec.*/DefaultTimeoutStopSec=15s/' /etc/systemd/system.conf && \
+    chmod a+x /usr/share/ublue-os/firstboot/*.sh && \
+
+# clean up
+RUN rm -f /usr/share/applications/htop.desktop && \
+    rm -f /usr/share/applications/nvtop.desktop && \
+    rm -rf /tmp/* /var/* && \
+    mkdir -p /var/tmp && \
+    chmod -R 1777 /var/tmp && \
+    
+# Commit container
 RUN ostree container commit
-RUN mkdir -p /var/lib && mv /staged-alternatives /var/lib/alternatives
-RUN mkdir -p /tmp /var/tmp
-RUN chmod 1777 /tmp /var/tmp
-RUN chmod a+x /usr/share/ublue-os/firstboot/*.sh
