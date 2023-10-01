@@ -17,7 +17,7 @@ COPY github-release-install.sh /tmp/github-release-install.sh
 ## bootc
 RUN wget https://copr.fedorainfracloud.org/coprs/rhcontainerbot/bootc/repo/fedora-"${FEDORA_MAJOR_VERSION}"/bootc-"${FEDORA_MAJOR_VERSION}".repo -O /etc/yum.repos.d/bootc.repo && \
     rpm-ostree install bootc && \
-    rm -f /etc/yum.repos.d/bootc-"${FEDORA_MAJOR_VERSION}".repo & \\
+    rm -f /etc/yum.repos.d/bootc-"${FEDORA_MAJOR_VERSION}".repo && \
     sed -i 's@enabled=1@enabled=0@g' /etc/yum.repos.d/bootc.repo
 
 # packages
