@@ -10,7 +10,7 @@ ARG FEDORA_MAJOR_VERSION="${FEDORA_MAJOR_VERSION:-38}"
 COPY etc /etc
 COPY usr /usr
 COPY packages.json /tmp/packages.json
-#COPY akmods.sh /tmp/akmods.sh
+COPY akmods.sh /tmp/akmods.sh
 COPY build.sh /tmp/build.sh
 COPY github-release-install.sh /tmp/github-release-install.sh
 
@@ -20,9 +20,11 @@ RUN wget https://copr.fedorainfracloud.org/coprs/rhcontainerbot/bootc/repo/fedor
     rm -f /etc/yum.repos.d/bootc-"${FEDORA_MAJOR_VERSION}".repo && \
     sed -i 's@enabled=1@enabled=0@g' /etc/yum.repos.d/bootc.repo
 
-# packages
+# packages & modules
 RUN mkdir -p /var/lib/alternatives && \
-    /tmp/build.sh
+    /tmp/build.sh && \
+    /tmp/akmods.sh
+
 
 #RUN mv /var/lib/alternatives /staged-alternatives
 #RUN mkdir -p /var/lib && mv /staged-alternatives /var/lib/alternatives
