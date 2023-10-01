@@ -30,16 +30,20 @@ RUN mkdir -p /var/lib/alternatives && \
 # finalize
 RUN systemctl enable dconf-update.service && \
     systemctl enable rpm-ostree-countme.timer && \
+    fc-cache -f /usr/share/fonts/inputmono && \
+    fc-cache -f /usr/share/fonts/outputsans && \
+    fc-cache -f /usr/share/fonts/sanfran && \
+    fc-cache -f /usr/share/fonts/sfmono && \
     sed -i 's/#DefaultTimeoutStopSec.*/DefaultTimeoutStopSec=15s/' /etc/systemd/user.conf && \
     sed -i 's/#DefaultTimeoutStopSec.*/DefaultTimeoutStopSec=15s/' /etc/systemd/system.conf && \
-    chmod a+x /usr/share/ublue-os/firstboot/*.sh && \
+    chmod a+x /usr/share/ublue-os/firstboot/*.sh
 
 # clean up
 RUN rm -f /usr/share/applications/htop.desktop && \
     rm -f /usr/share/applications/nvtop.desktop && \
     rm -rf /tmp/* /var/* && \
     mkdir -p /var/tmp && \
-    chmod -R 1777 /var/tmp && \
+    chmod -R 1777 /var/tmp
     
 # Commit container
 RUN ostree container commit
