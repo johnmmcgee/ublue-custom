@@ -55,7 +55,6 @@ In addition to the packages/config provided by base images, this image:
   - [wireguard-tools](https://www.wireguard.com/) (for more VPN)
   - wl-clipboard
   - zsh
-  - default font set to Noto Sans
 - Sets faster timeout on systemd waiting for shutdown
 - Sets gnome's "APP is not responding" check to 30 seconds
 - Sets some a few custom gnome settings (see etc/dconf)
@@ -105,7 +104,7 @@ In addition to the packages/config provided by base images, this image:
 - KeePassXC
 ## Further Customization
 
-Upon the first time booting and on each update, the system will check if `$HOME/.firstboot-ran` exist and if it does not it will go through a series of scripts that do things like install flatpaks and... well that is all it does at the moment.  You can remove this file if you wish for it to run again on next update.
+Upon the first time booting and on each update, the system will check if `$HOME/.config/ublue-os/firstboot/.firstboot-ran` exist and if it does not it will go through a series of scripts that do things like install flatpaks and... well that is all it does at the moment.  You can remove this file if you wish for it to run again on next update.
 
 ## Usage
 
@@ -121,7 +120,7 @@ We build `latest` which points to Fedora 38:
     rpm-ostree rebase ostree-unverified-registry:ghcr.io/johnmmcgee/silverblue-nvidia-custom:latest
     rpm-ostree rebase ostree-image-signed:docker://ghcr.io/johnmmcgee/silverblue-nvidia-custom:latest
 
-Our you can test out 39:
+Or you can test out 39:
 
   Standard
   
