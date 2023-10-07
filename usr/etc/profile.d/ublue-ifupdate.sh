@@ -4,4 +4,4 @@
 /usr/bin/distrobox-assemble create --file /etc/distrobox/distrobox.ini
 
 # delete ourselves.
-rm -f $(basename "$0")
+rm -f $0
