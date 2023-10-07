@@ -3,7 +3,6 @@
         "include": {
             "all": [
                 "buildah",
-                "code",
                 "fira-code-fonts",
                 "highlight",
                 "iperf3",
