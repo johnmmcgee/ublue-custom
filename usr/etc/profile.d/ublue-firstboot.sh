@@ -5,7 +5,7 @@ get_fedora_major_version() {
 }
 
 firstboot_dir="$HOME/.config/ublue-os/firstboot"
-firstboot_done_file="$firstboot_dir/firstboot-done"
+firstboot_setup_file="$firstboot_dir/firstboot-setup-done"
 firstboot_desktop="/etc/skel.d/.config/autostart/ublue-firstboot.desktop"
 firstboot_profiled="/etc/profile.d/ublue-firstboot.sh"
 last_fedora_major_file="$firstboot_dir/last-fedora-major"
@@ -15,7 +15,7 @@ if [ "$(id -u)" -eq 1000 ] && [ -d "$HOME" ]; then
     [ -f "$last_fedora_major_file" ] && last_fedora_major=$(cat "$last_fedora_major_file")
     current_fedora_major=$(get_fedora_major_version)
 
-    if [ "$last_fedora_major" != "$current_fedora_major" ] || [ ! -f "$firstboot_done_file" ]; then
+    if [ "$last_fedora_major" != "$current_fedora_major" ] || [ ! -f "$firstboot_setup_file" ]; then
         [ ! -d "$autostart_dir" ] && mkdir -p "$autostart_dir"
         cp -f "$firstboot_desktop" "$autostart_dir"
         [ ! -d "$firstboot_dir" ] && mkdir -p "$firstboot_dir"

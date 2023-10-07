@@ -4,7 +4,6 @@ script_dir="$(dirname "$0")"
 script_name="$(basename "$0")"
 firstboot_dir="$HOME/.config/ublue-os/firstboot/"
 firstboot_setup_file="$firstboot_dir/firstboot-setup-done"
-firstboot_distrobox_file="$firstboot_dir/firstboot-distrobox-done"
 
 if [ ! -f "$firstboot_setup_file" ]; then
 
@@ -23,9 +22,8 @@ if [ ! -f "$firstboot_setup_file" ]; then
 
 fi
 
-#if [ ! -f "$firstboot_distrobox_file" ]; then
-    /usr/bin/distrobox-assemble create --file /etc/distrobox/distrobox.ini
-#    touch "$firstboot_distrobox_file"
-#fi
+
+/usr/bin/distrobox-assemble create --file /etc/distrobox/distrobox.ini
+
 
 
