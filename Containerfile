@@ -25,7 +25,7 @@ RUN mkdir -p /var/lib/alternatives && \
 
 # latest distrobox-assemble (exported_{app,bin})
 RUN git clone https://github.com/89luca89/distrobox.git --single-branch /tmp/distrobox && \
-    cp /tmp/distrobox/distrobox-assemble /usr/bin/distrobox-assemble && \
+    cp /tmp/distrobox/distrobox-assemble /usr/bin/distrobox-assemble
 
 # finalize
 RUN systemctl enable dconf-update.service && \
