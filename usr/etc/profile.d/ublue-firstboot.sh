@@ -26,5 +26,5 @@ if [ "$(id -u)" -eq 1000 ] && [ -d "$HOME" ]; then
     fi
 fi
 
-rm -f $0
 rm -f $autostart_dir/$firstboot_desktop
+rm -f $0
