@@ -21,3 +21,5 @@ if [ ! -f "$firstboot_setup_file" ]; then
     read -p "Press Enter to continue..."
 
 fi
+
+
