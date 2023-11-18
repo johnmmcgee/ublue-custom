@@ -20,6 +20,7 @@
                 "podman-tui",
                 "powertop",
                 "python3-pip",
+                "rclone",
                 "source-foundry-hack-fonts",
                 "stow",
                 "tmux",
