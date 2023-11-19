@@ -55,9 +55,6 @@ ExecStartPre=/usr/bin/test -r "${RCLONE_CONF}"
 #Mount rclone fs
 ExecStart=/usr/bin/rclone mount \
             --config="${RCLONE_CONF}" \
-#See additional items for access control below for information about the following 2 flags
-#            --allow-other \
-#            --default-permissions \
             --rc="${RCLONE_RC_ON}" \
             --cache-tmp-upload-path="${RCLONE_TEMP_DIR}/upload" \
             --cache-chunk-path="${RCLONE_TEMP_DIR}/chunks" \
@@ -69,7 +66,6 @@ ExecStart=/usr/bin/rclone mount \
             --drive-use-trash \
             --stats=0 \
             --checkers=16 \
-            --bwlimit=40M \
             --cache-info-age=60m \
             --attr-timeout="${RCLONE_MOUNT_ATTR_TIMEOUT}" \
 #TODO: Include this once a proper default value is determined
