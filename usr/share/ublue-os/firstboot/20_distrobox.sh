@@ -1,4 +1,4 @@
 !#/bin/bash
 
 echo "distrobox assemble"
-distrobox assemble --file /etc/distrobox/distrobox.ini
+distrobox assemble create --file /etc/distrobox/distrobox.ini
