@@ -37,7 +37,6 @@ RUN systemctl enable dconf-update.service && \
     sed -i 's/#DefaultTimeoutStopSec.*/DefaultTimeoutStopSec=15s/' /etc/systemd/user.conf && \
     sed -i 's/#DefaultTimeoutStopSec.*/DefaultTimeoutStopSec=15s/' /etc/systemd/system.conf && \
     chmod a+x /usr/share/ublue-os/firstboot/*.sh
-    chmod a+x /etc/systemd/user/rclone@.service
 
 # clean up
 RUN rm -f /usr/share/applications/htop.desktop && \
