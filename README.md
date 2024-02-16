@@ -138,5 +138,5 @@ Use the `latest` tag to follow the current latest.  Or you can use the release t
 
 These images are signed with sigstore's [cosign](https://docs.sigstore.dev/cosign/overview/). You can verify the signature by downloading the `cosign.pub` key from this repo and running the appropriate command:
 
-    cosign verify --key cosign.pub ghcr.io/johnmmcgee/silverblue-custom
-    cosign verify --key cosign.pub ghcr.io/johnmmcgee/silverblue-nvidia-custom
+    cosign verify --key cosign.pub ghcr.io/johnmmcgee/ublue-custom
+    cosign verify --key cosign.pub ghcr.io/johnmmcgee/ublue-nvidia-custom
