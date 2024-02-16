@@ -57,11 +57,11 @@ In addition to the packages/config provided by base images, this image:
   - zsh
 - Sets faster timeout on systemd waiting for shutdown
 - Sets gnome's "APP is not responding" check to 30 seconds
-- Sets some a few custom gnome settings (see etc/dconf)
+- Sets some custom gnome settings (see etc/dconf)
 
 ## Applications
 
-- The following applications are install system-wide:
+- The following applications are installed system-wide:
 ### Communications
 - Discord
 - Slack
