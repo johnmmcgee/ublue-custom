@@ -17,10 +17,15 @@ if [ ${FEDORA_MAJOR_VERSION} -ge "39" ]; then \
     rpm-ostree install \
         ptyxis && \
     rm -f /etc/yum.repos.d/_copr_kylegospo*
- fi
+fi
 
 # akmods
-
+if [ ${FEDORA_MAJOR_VERSION} -ge "39" ]; then \
+   rpm-ostree install \
+        akmod-v4l2loopback \
+        akmod-winesync \
+        akmod-xone 
+fi
 
 # packages
 sh /tmp/packages.sh
