@@ -48,6 +48,7 @@ In addition to the packages/config provided by base images, this image:
   - lsd
   - p7zip
   - powertop
+  - ptyxis
   - stow
   - tmux
   - [libvirtd/virsh](https://libvirt.org/) and [virt-manager](https://virt-manager.org/) (for installing/running VMs)
