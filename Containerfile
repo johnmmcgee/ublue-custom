@@ -33,7 +33,7 @@ RUN if [ ${FEDORA_MAJOR_VERSION} -ge "39" ]; then \
 COPY --from=ghcr.io/ublue-os/akmods:${AKMODS_FLAVOR}-${FEDORA_MAJOR_VERSION} /rpms /tmp/akmods-rpms
 RUN if [ ${FEDORA_MAJOR_VERSION} -ge "39" ]; then \
         rpm-ostree install \
-            /tmp/akmods-rpms/kmods/*xpadneo*.rpm \
+            /tmp/akmods-rpms/kmods/*xpad*.rpm \
             /tmp/akmods-rpms/kmods/*xone*.rpm \
             /tmp/akmods-rpms/kmods/*v4l2loopback*.rpm \
             /tmp/akmods-rpms/kmods/*winesync*.rpm \
