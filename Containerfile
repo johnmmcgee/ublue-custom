@@ -18,28 +18,24 @@ ARG FEDORA_MAJOR_VERSION="${FEDORA_MAJOR_VERSION}"
 COPY usr /usr
 
 # ptyxis
-RUN if [ ${FEDORA_MAJOR_VERSION} -ge "39" ]; then \
-        wget https://copr.fedorainfracloud.org/coprs/kylegospo/prompt/repo/fedora-$(rpm -E %fedora)/kylegospo-prompt-fedora-$(rpm -E %fedora).repo?arch=x86_64 -O /etc/yum.repos.d/_copr_kylegospo-prompt.repo && \
-        rpm-ostree override replace \
-        --experimental \
-        --from repo=copr:copr.fedorainfracloud.org:kylegospo:prompt \
-            vte291 \
-            vte-profile \
-            libadwaita && \
-        rpm-ostree install \
-            ptyxis && \
-        rm -f /etc/yum.repos.d/_copr_kylegospo-prompt.repo && \
-    fi
+RUN wget https://copr.fedorainfracloud.org/coprs/kylegospo/prompt/repo/fedora-$(rpm -E %fedora)/kylegospo-prompt-fedora-$(rpm -E %fedora).repo?arch=x86_64 -O /etc/yum.repos.d/_copr_kylegospo-prompt.repo && \
+    rpm-ostree override replace \
+    --experimental \
+    --from repo=copr:copr.fedorainfracloud.org:kylegospo:prompt \
+        vte291 \
+        vte-profile \
+        libadwaita && \
+    rpm-ostree install \
+        ptyxis && \
+    rm -f /etc/yum.repos.d/_copr_kylegospo-prompt.repo && \
 
 # akmods
 COPY --from=ghcr.io/ublue-os/akmods:${AKMODS_FLAVOR}-${FEDORA_MAJOR_VERSION} /rpms /tmp/akmods-rpms
-RUN if [[ "${FEDORA_MAJOR_VERSION}" -ge "39" ]]; then \
-        rpm-ostree install \
-            /tmp/akmods-rpms/kmods/*xpadneo*.rpm \
-            /tmp/akmods-rpms/kmods/*xone*.rpm \
-            /tmp/akmods-rpms/kmods/*v4l2loopback*.rpm \
-            /tmp/akmods-rpms/kmods/*winesync*.rpm \
-    fi
+RUN rpm-ostree install \
+        /tmp/akmods-rpms/kmods/*xpadneo*.rpm \
+        /tmp/akmods-rpms/kmods/*xone*.rpm \
+        /tmp/akmods-rpms/kmods/*v4l2loopback*.rpm \
+        /tmp/akmods-rpms/kmods/*winesync*.rpm 
 
 # packages
 ADD packages.json /tmp/packages.json
