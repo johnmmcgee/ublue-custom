@@ -1,5 +1,4 @@
 #!/bin/sh
-
 set -ouex pipefail
 
 RELEASE="$(rpm -E %fedora)"
