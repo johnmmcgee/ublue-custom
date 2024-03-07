@@ -58,11 +58,11 @@ In addition to the packages/config provided by base images, this image:
   - zsh
 - Sets faster timeout on systemd waiting for shutdown
 - Sets gnome's "APP is not responding" check to 30 seconds
-- Sets some a few custom gnome settings (see etc/dconf)
+- Sets some custom gnome settings (see etc/dconf)
 
 ## Applications
 
-- The following applications are install system-wide:
+- The following applications are installed system-wide:
 ### Communications
 - Discord
 - Slack
@@ -139,5 +139,5 @@ Use the `latest` tag to follow the current latest.  Or you can use the release t
 
 These images are signed with sigstore's [cosign](https://docs.sigstore.dev/cosign/overview/). You can verify the signature by downloading the `cosign.pub` key from this repo and running the appropriate command:
 
-    cosign verify --key cosign.pub ghcr.io/johnmmcgee/silverblue-custom
-    cosign verify --key cosign.pub ghcr.io/johnmmcgee/silverblue-nvidia-custom
+    cosign verify --key cosign.pub ghcr.io/johnmmcgee/ublue-custom
+    cosign verify --key cosign.pub ghcr.io/johnmmcgee/ublue-nvidia-custom
