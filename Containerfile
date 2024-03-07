@@ -28,7 +28,7 @@ RUN if [ ${FEDORA_MAJOR_VERSION} -ge "39" ]; then \
             libadwaita && \
         rpm-ostree install \
             ptyxis && \
-        rm -f /etc/yum.repos.d/_copr_kylegospo-prompt.repo && \
+        rm -f /etc/yum.repos.d/_copr_kylegospo-prompt.repo \
     ; fi
     
 # akmods
