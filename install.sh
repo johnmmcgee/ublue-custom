@@ -20,5 +20,5 @@ if [ ${FEDORA_MAJOR_VERSION} -ge "39" ]; then \
  fi
 
 # packages
-/tmp/packages.sh
+sh /tmp/packages.sh
 

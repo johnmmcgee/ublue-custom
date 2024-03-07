@@ -12,7 +12,7 @@ COPY usr /usr
 ADD packages.json /tmp/packages.json
 ADD *.sh /tmp/
 
-RUN /tmp/install.sh && \
-    /tmp/post-install.sh && \
+RUN sh /tmp/install.sh && \
+    sh /tmp/post-install.sh && \
     rm -rf /tmp/* /var/* && \
     ostree container commit
