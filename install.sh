@@ -19,6 +19,9 @@ if [ ${FEDORA_MAJOR_VERSION} -ge "39" ]; then \
     rm -f /etc/yum.repos.d/_copr_kylegospo*
  fi
 
+# akmods
+
+
 # packages
 sh /tmp/packages.sh
 
