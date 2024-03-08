@@ -17,7 +17,7 @@ Based on:
 - [ublue-os/main](https://github.com/ublue-os/main) for good foundations
   - adds distrobox, freeworld mesa and media codecs, gnome-tweaks (on gnome), just, openssl, pipewire-codec-aptx, ratbagd, vim
   - sets automatic staging of updates to system
-  - sets flatpaks to update twice a day
+  - sets flatpaks to update at 04:00 (lets switch this to hourly)
   - v4l2loopback driver from [ublue-os/akmods](https://github.com/ublue-os/akmods)
   - xpadneo/xone xbox controller drivers from [ublue-os/akmods](https://github.com/ublue-os/akmods)
 - [ublue-os/nvidia](https://github.com/ublue-os/nvidia) for nvidia variants adds:
