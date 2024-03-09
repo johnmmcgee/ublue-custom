@@ -37,6 +37,12 @@ RUN if [ ${FEDORA_MAJOR_VERSION} -ge "39" ]; then \
             /tmp/akmods-rpms/kmods/*winesync*.rpm \
     ; fi 
 
+# vscode
+RUN echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo && \
+    rpm-ostree install \
+        code \
+        ansible-lint \
+
 # packages
 ADD packages.json /tmp/packages.json
 ADD packages.sh /tmp/
