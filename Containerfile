@@ -31,11 +31,23 @@ RUN if [ ${FEDORA_MAJOR_VERSION} -ge "39" ]; then \
     
 # akmods
 COPY --from=ghcr.io/ublue-os/akmods:${AKMODS_SUFFIX}-${FEDORA_MAJOR_VERSION} /rpms /tmp/akmods-rpms
-RUN if [ ${FEDORA_MAJOR_VERSION} -ge "39" ]; then \
+
+RUN sed -i 's@enabled=0@enabled=1@g' /etc/yum.repos.d/_copr_ublue-os-akmods.repo && \
+    wget https://negativo17.org/repos/fedora-multimedia.repo -O /etc/yum.repos.d/negativo17-fedora-multimedia.repo && \
+    if [[ "${FEDORA_MAJOR_VERSION}" -ge "39" ]]; then \
         rpm-ostree install \
+            /tmp/akmods-rpms/kmods/*xpadneo*.rpm \
+            /tmp/akmods-rpms/kmods/*xone*.rpm \
+            /tmp/akmods-rpms/kmods/*openrazer*.rpm \
             /tmp/akmods-rpms/kmods/*v4l2loopback*.rpm \
             /tmp/akmods-rpms/kmods/*winesync*.rpm \
-    ; fi 
+            /tmp/akmods-rpms/kmods/*wl*.rpm \
+    ; fi && \
+    if grep -qv "asus" <<< "${AKMODS_FLAVOR}"; then \
+        rpm-ostree install \
+            /tmp/akmods-rpms/kmods/*evdi*.rpm \
+    ; fi && \
+    sed -i 's@enabled=1@enabled=0@g' /etc/yum.repos.d/negativo17-fedora-multimedia.repo
 
 # vscode
 RUN echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo && \
