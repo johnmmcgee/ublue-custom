@@ -19,12 +19,18 @@ if [ "$choice" == "y" ] || [ "$choice" == "Y" ]; then
     flatpak remote-add --if-not-exists --system flathub https://flathub.org/repo/flathub.flatpakrepo
 
     echo "Installing flatpaks that we wish to be system-wide..."
-    echo "Communication apps ..."
+    echo "Communication applicatons ..."
     flatpak install -y --system \
       com.discordapp.Discord \
       com.slack.Slack \
       org.signal.Signal \
       org.telegram.desktop
+
+    echo "Devolopment applications ..."
+    flatpak install -y --system \
+      com.visualstudio.code \
+      com.visualstudio.code.tool.podman
+    flatpak override --system --filesystem=xdg-run/podman com.visualstudio.code
 
     echo "Gaming applications ..."
     flatpak install -y --system \
