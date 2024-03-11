@@ -20,6 +20,7 @@ if [ "$choice" == "y" ] || [ "$choice" == "Y" ]; then
       com.visualstudio.code \
       com.visualstudio.code.tool.podman/x86_64/23.08 # com.visualstudio.code.tool.podman
     flatpak override --user --filesystem=xdg-run/podman com.visualstudio.code
+    systemctl enable --user --now podman.socket
 
     echo "Gaming applications ..."
     flatpak install -y --user \
