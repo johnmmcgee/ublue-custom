@@ -4,7 +4,8 @@ read -p "Do you want to install all user flatpaks? (y/n): " choice
 if [ "$choice" == "y" ] || [ "$choice" == "Y" ]; then
 
     flatpak remote-add --if-not-exists --user flathub https://flathub.org/repo/flathub.flatpakrepo
-    
+    flatpak remote-modify --user --enable flathub
+
     echo "Installing desired user flatpaks..."
     
     echo "Communication applicatons ..."

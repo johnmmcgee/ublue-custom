@@ -2,6 +2,7 @@
     "all": {
         "include": {
             "all": [
+                "ansible",
                 "buildah",
                 "fira-code-fonts",
                 "highlight",
@@ -23,6 +24,7 @@
                 "rclone",
                 "source-foundry-hack-fonts",
                 "stow",
+                "strace", 
                 "tmux",
                 "virt-install",
                 "virt-manager",

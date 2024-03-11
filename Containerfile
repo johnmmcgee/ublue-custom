@@ -62,6 +62,7 @@ RUN sh /tmp/packages.sh
 # post install (enabled services, fonts, timeouts, firstboot, remove shortcuts, commit)
 RUN systemctl enable dconf-update.service && \
     systemctl enable rpm-ostree-countme.timer && \
+    systemctl enable podman.socket && \
     fc-cache -f /usr/share/fonts/inputmono && \
     fc-cache -f /usr/share/fonts/outputsans && \
     sed -i 's/#DefaultTimeoutStopSec.*/DefaultTimeoutStopSec=15s/' /etc/systemd/user.conf && \

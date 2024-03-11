@@ -15,7 +15,8 @@ if [ "$choice" == "y" ] || [ "$choice" == "Y" ]; then
     fi
     
     flatpak remote-add --if-not-exists --system flathub https://flathub.org/repo/flathub.flatpakrepo
-
+    flatpak remote-modify --system --enable flathub
+    
     echo "Installing flatpaks that we wish to be system-wide..."
 
     echo "Gnome applications ..."
