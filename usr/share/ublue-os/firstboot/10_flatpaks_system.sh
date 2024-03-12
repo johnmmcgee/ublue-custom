@@ -16,7 +16,7 @@ if [ "$choice" == "y" ] || [ "$choice" == "Y" ]; then
     
     flatpak remote-add --if-not-exists --system flathub https://flathub.org/repo/flathub.flatpakrepo
     flatpak remote-modify --system --enable flathub
-    
+
     echo "Installing flatpaks that we wish to be system-wide..."
 
     echo "Gnome applications ..."
@@ -43,7 +43,7 @@ if [ "$choice" == "y" ] || [ "$choice" == "Y" ]; then
 
     echo "Multimeda applications ..."
     flatpak install -y --system \
-      org.videolan.VLC
+      com.github.rafostar.Clapper
 
     echo "Productivity applications ..."
     flatpak install -y --system \
