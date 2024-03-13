@@ -27,11 +27,11 @@ if [ "$choice" == "y" ] || [ "$choice" == "Y" ]; then
       org.telegram.desktop
 
     echo "Devolopment applications ..."
-    flatpak install -y --user \
+    flatpak install -y --system \
       com.visualstudio.code \
-      com.visualstudio.code.tool.podman # com.visualstudio.code.tool.podman
-    flatpak override --user --filesystem=xdg-run/podman com.visualstudio.code
-    systemctl enable --user --now podman.socket
+      com.visualstudio.code.tool.podman//23.08 # com.visualstudio.code.tool.podman
+    flatpak override --system --filesystem=xdg-run/podman com.visualstudio.code
+    systemctl enable --system --now podman.socket
 
     echo "Gaming applications ..."
     flatpak install -y --system \
@@ -63,8 +63,9 @@ if [ "$choice" == "y" ] || [ "$choice" == "Y" ]; then
 
     echo "Multimeda applications ..."
     flatpak install -y --system \
+      com.github.rafostar.Clapper \
       com.spotify.Client \
-      com.github.rafostar.Clapper
+      org.freedesktop.Platform.ffmpeg-full//22.08
 
     echo "Productivity applications ..."
     flatpak install -y --system \
@@ -72,8 +73,10 @@ if [ "$choice" == "y" ] || [ "$choice" == "Y" ]; then
   
     echo "Utilities ..."
     flatpak install -y --system \
+      com.usebottles.bottles \
+      io.github.dvlv.boxbuddyrs \
+      io.missioncenter.MissionCenter \
       net.cozic.joplin_desktop \
-      org.keepassxc.KeePassXC \
-      com.usebottles.bottles
+      org.keepassxc.KeePassXC 
 
 fi
