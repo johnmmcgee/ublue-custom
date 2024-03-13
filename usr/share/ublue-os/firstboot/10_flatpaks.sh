@@ -3,7 +3,7 @@
 read -p "Do you want to install all system flatpaks? (y/n): " choice
 if [ "$choice" == "y" ] || [ "$choice" == "Y" ]; then
 
-    echo "Disable all repos but flathub for this install .. "
+    echo "Disable all repos but flatub for this install .. "
     flatpak remote-delete fedora --force
     flatpak remote-delete fedora-testing --force
 
@@ -14,10 +14,29 @@ if [ "$choice" == "y" ] || [ "$choice" == "Y" ]; then
 
     fi
     
+    #sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+    flatpak remote-add --if-not-exists --user flathub https://flathub.org/repo/flathub.flatpakrepo
     flatpak remote-add --if-not-exists --system flathub https://flathub.org/repo/flathub.flatpakrepo
-    flatpak remote-modify --system --enable flathub
 
     echo "Installing flatpaks that we wish to be system-wide..."
+    echo "Communication applicatons ..."
+    flatpak install -y --system \
+      com.discordapp.Discord \
+      com.slack.Slack \
+      org.signal.Signal \
+      org.telegram.desktop
+
+    echo "Devolopment applications ..."
+    flatpak install -y --user \
+      com.visualstudio.code \
+      com.visualstudio.code.tool.podman # com.visualstudio.code.tool.podman
+    flatpak override --user --filesystem=xdg-run/podman com.visualstudio.code
+    systemctl enable --user --now podman.socket
+
+    echo "Gaming applications ..."
+    flatpak install -y --system \
+      com.mojang.Minecraft \
+      com.valvesoftware.Steam
 
     echo "Gnome applications ..."
     flatpak install -y --system \
@@ -39,14 +58,22 @@ if [ "$choice" == "y" ] || [ "$choice" == "Y" ]; then
 
     echo "Internet applications ..."
     flatpak install -y --system \
+      com.github.micahflee.torbrowser-launcher \
       org.mozilla.firefox
 
     echo "Multimeda applications ..."
     flatpak install -y --system \
+      com.spotify.Client \
       com.github.rafostar.Clapper
 
     echo "Productivity applications ..."
     flatpak install -y --system \
       org.libreoffice.LibreOffice 
+  
+    echo "Utilities ..."
+    flatpak install -y --system \
+      net.cozic.joplin_desktop \
+      org.keepassxc.KeePassXC \
+      com.usebottles.bottles
 
 fi
