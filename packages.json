@@ -3,6 +3,7 @@
         "include": {
             "all": [
                 "ansible",
+                "borgbackup",
                 "buildah",
                 "fira-code-fonts",
                 "highlight",
