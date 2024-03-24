@@ -2,11 +2,11 @@
     "all": {
         "include": {
             "all": [
+                "alacritty".
                 "ansible",
                 "borgbackup",
                 "buildah",
                 "fira-code-fonts",
-                "foot",
                 "highlight",
                 "iperf3",
                 "kitty",
