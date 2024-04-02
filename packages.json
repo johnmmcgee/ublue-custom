@@ -15,6 +15,7 @@
                 "libvirt-client",
                 "libvirt-daemon-kvm",
                 "lsd",
+                "netcat",
                 "numlockx",
                 "p7zip",
                 "p7zip-plugins",

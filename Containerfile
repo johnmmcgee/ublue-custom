@@ -19,18 +19,18 @@ COPY usr /usr
 RUN  wget https://copr.fedorainfracloud.org/coprs/che/nerd-fonts/repo/fedora-"${FEDORA_MAJOR_VERSION}"/che-nerd-fonts-fedora-"${FEDORA_MAJOR_VERSION}".repo -O /etc/yum.repos.d/_copr_che-nerd-fonts-"${FEDORA_MAJOR_VERSION}".repo
 
 # ptyxis
-RUN if [ ${FEDORA_MAJOR_VERSION} -ge "39" ]; then \
-        wget https://copr.fedorainfracloud.org/coprs/kylegospo/prompt/repo/fedora-$(rpm -E %fedora)/kylegospo-prompt-fedora-$(rpm -E %fedora).repo?arch=x86_64 -O /etc/yum.repos.d/_copr_kylegospo-prompt.repo && \
-        rpm-ostree override replace \
-        --experimental \
-        --from repo=copr:copr.fedorainfracloud.org:kylegospo:prompt \
-            vte291 \
-            vte-profile \
-            libadwaita && \
-        rpm-ostree install \
-            ptyxis && \
-        rm -f /etc/yum.repos.d/_copr_kylegospo-prompt.repo \
-    ; fi
+#RUN if [ ${FEDORA_MAJOR_VERSION} -ge "39" ]; then \
+#        wget https://copr.fedorainfracloud.org/coprs/kylegospo/prompt/repo/fedora-$(rpm -E %fedora)/kylegospo-prompt-fedora-$(rpm -E %fedora).repo?arch=x86_64 -O /etc/yum.repos.d/_copr_kylegospo-prompt.repo && \
+#        rpm-ostree override replace \
+#        --experimental \
+#        --from repo=copr:copr.fedorainfracloud.org:kylegospo:prompt \
+#            vte291 \
+#            vte-profile \
+#            libadwaita && \
+#        rpm-ostree install \
+#            ptyxis && \
+#        rm -f /etc/yum.repos.d/_copr_kylegospo-prompt.repo \
+#    ; fi
     
 # akmods
 COPY --from=ghcr.io/ublue-os/akmods:${AKMODS_SUFFIX}-${FEDORA_MAJOR_VERSION} /rpms /tmp/akmods-rpms
