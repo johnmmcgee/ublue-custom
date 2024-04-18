@@ -56,7 +56,7 @@ RUN sh /tmp/packages.sh
 RUN systemctl enable dconf-update.service && \
     systemctl enable rpm-ostree-countme.timer && \
     systemctl enable podman.socket && \
-    systemctl enable tuned.service && \
+#    systemctl enable tuned.service && \
     fc-cache -f /usr/share/fonts/inputmono && \
     fc-cache -f /usr/share/fonts/outputsans && \
     [ ! -f /etc/systemd/user.conf ] && cp /usr/lib/systemd/user.conf /etc/systemd/ && \
