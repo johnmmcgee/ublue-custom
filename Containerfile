@@ -59,6 +59,8 @@ RUN systemctl enable dconf-update.service && \
     systemctl enable tuned.service && \
     fc-cache -f /usr/share/fonts/inputmono && \
     fc-cache -f /usr/share/fonts/outputsans && \
+    [ ! -f /etc/systemd/user.conf ] && cp /usr/lib/systemd/user.conf /etc/systemd/ && \
+    [ ! -f /etc/systemd/system.conf ] && cp /usr/lib/systemd/system.conf /etc/systemd/ && \
     sed -i 's/#DefaultTimeoutStopSec.*/DefaultTimeoutStopSec=15s/' /etc/systemd/user.conf && \
     sed -i 's/#DefaultTimeoutStopSec.*/DefaultTimeoutStopSec=15s/' /etc/systemd/system.conf && \
     chmod a+x /usr/share/ublue-os/firstboot/*.sh && \
