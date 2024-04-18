@@ -15,6 +15,10 @@ on:
 env:
     IMAGE_REGISTRY: ghcr.io/${{ github.repository_owner }}
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref || github.run_id }}
+  cancel-in-progress: true
+
 jobs:
   push-ghcr:
     name: Build and push image
@@ -37,7 +41,6 @@ jobs:
             is_latest_version: true
             is_stable_version: false
     steps: 
-      # Checkout push-to-registry action GitHub repository
       - name: Checkout Push to Registry action
         uses: actions/checkout@v4
 
@@ -163,7 +166,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       # Sign container
-      - uses: sigstore/cosign-installer@v3.1.2
+      - uses: sigstore/cosign-installer@v3.4.0
         if: github.event_name != 'pull_request'
 
       # Only needed when running `cosign sign` using a key
