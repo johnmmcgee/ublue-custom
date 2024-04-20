@@ -91,7 +91,7 @@ In addition to the packages/config provided by base images, this image:
 
 ### Multimedia
 - Spotify
-- VLC
+- Clapper
 
 ### Productivity
 - LibreOffice
