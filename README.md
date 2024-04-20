@@ -105,7 +105,7 @@ Upon the first time booting and on each update, the system will check if `$HOME/
 
 ## Usage
 
-We build `latest` which points to Fedora 39:
+We build `latest` which points to Fedora 40:
 
   Standard
   
@@ -117,19 +117,19 @@ We build `latest` which points to Fedora 39:
     rpm-ostree rebase ostree-unverified-registry:ghcr.io/johnmmcgee/silverblue-nvidia-custom:latest
     rpm-ostree rebase ostree-image-signed:docker://ghcr.io/johnmmcgee/silverblue-nvidia-custom:latest
 
-Or you can revert back to 38:
+Or you can revert back to 39:
 
   Standard
   
-    rpm-ostree rebase ostree-unverified-registry:ghcr.io/johnmmcgee/silverblue-custom:38
-    rpm-ostree rebase ostree-image-signed:docker://ghcr.io/johnmmcgee/silverblue-custom:38
+    rpm-ostree rebase ostree-unverified-registry:ghcr.io/johnmmcgee/silverblue-custom:39
+    rpm-ostree rebase ostree-image-signed:docker://ghcr.io/johnmmcgee/silverblue-custom:39
 
   NVidia drivers
   
-    rpm-ostree rebase ostree-unverified-registry:ghcr.io/johnmmcgee/silverblue-nvidia-custom:38
-    rpm-ostree rebase ostree-image-signed:docker://ghcr.io/johnmmcgee/silverblue-nvidia-custom:38
+    rpm-ostree rebase ostree-unverified-registry:ghcr.io/johnmmcgee/silverblue-nvidia-custom:39
+    rpm-ostree rebase ostree-image-signed:docker://ghcr.io/johnmmcgee/silverblue-nvidia-custom:39
 
-Use the `latest` tag to follow the current latest.  Or you can use the release tag, such as `39`, which is current. 
+Use the `latest` tag to follow the current latest.  Or you can use the release tag, such as `40`, which is current. 
 
 ## Verification
 
