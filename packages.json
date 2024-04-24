@@ -27,6 +27,7 @@
                 "powertop",
                 "python3-pip",
                 "rclone",
+                "slirp4netns",
                 "source-foundry-hack-fonts",
                 "stow",
                 "strace",
