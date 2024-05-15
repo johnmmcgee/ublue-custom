@@ -18,6 +18,7 @@
                 "lsd",
                 "netcat",
                 "numlockx",
+                "perl-Image-ExifTool",
                 "p7zip",
                 "p7zip-plugins",
                 "podmansh",
