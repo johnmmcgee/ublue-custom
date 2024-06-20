@@ -31,7 +31,6 @@ RUN  wget https://copr.fedorainfracloud.org/coprs/che/nerd-fonts/repo/fedora-"${
 #            ptyxis && \
 #        rm -f /etc/yum.repos.d/_copr_kylegospo-prompt.repo \
 #    ; fi
-    
 # akmods
 COPY --from=ghcr.io/ublue-os/akmods:${AKMODS_SUFFIX}-${FEDORA_MAJOR_VERSION} /rpms /tmp/akmods-rpms
 RUN sed -i 's@enabled=0@enabled=1@g' /etc/yum.repos.d/_copr_ublue-os-akmods.repo && \
