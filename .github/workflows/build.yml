@@ -36,10 +36,10 @@ jobs:
         include:
           - major_version: 39
             is_latest_version: false
-            is_stable_version: true
+            is_stable_version: false
           - major_version: 40
             is_latest_version: true
-            is_stable_version: false
+            is_stable_version: true
     steps: 
       - name: Checkout Push to Registry action
         uses: actions/checkout@v4
