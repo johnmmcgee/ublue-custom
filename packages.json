@@ -18,6 +18,7 @@
                 "libretls",
                 "libvirt-client",
                 "libvirt-daemon-kvm",
+                "lm_sensors",
                 "lsd",
                 "netcat",
                 "numlockx",
