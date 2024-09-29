@@ -2,7 +2,7 @@
 Description=User Automount for mcgeecloud NFS share
 
 [Automount]
-Where=%h/.mnt/mcgeecloud
+Where=~/.mnt/mcgeecloud
 TimeoutIdleSec=60
 
 [Install]

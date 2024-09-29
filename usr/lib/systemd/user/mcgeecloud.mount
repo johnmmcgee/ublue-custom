@@ -4,7 +4,7 @@ After=network.target
 
 [Mount]
 What=nas:/var/mnt/bender/cloud/%u
-Where=%h/.mnt/mcgeecloud
+Where=~/.mnt/mcgeecloud
 Type=nfs4
 Options=sec=krb5p
 
