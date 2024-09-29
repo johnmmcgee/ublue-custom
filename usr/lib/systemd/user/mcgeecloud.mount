@@ -1,0 +1,12 @@
+[Unit]
+Description=Mount for mcgeecloud NFS share for %u
+After=network.target
+
+[Mount]
+What=nas:/var/mnt/bender/cloud/%u
+Where=%h/.mnt/mcgeecloud
+Type=nfs4
+Options=sec=krb5p
+
+[Install]
+WantedBy=default.target
