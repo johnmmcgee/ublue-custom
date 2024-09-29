@@ -1,0 +1,10 @@
+[Unit]
+Description=Automount NFS for mcgeecloud in /home/%u/mcgeecloud
+Requires=network.target
+After=network-online.target
+
+[Automount]
+Where=/home/%u/mcgeecloud
+
+[Install]
+WantedBy=multi-user.target
