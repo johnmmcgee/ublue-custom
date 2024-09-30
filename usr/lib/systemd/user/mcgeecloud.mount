@@ -3,8 +3,8 @@ Description=Mount for mcgeecloud NFS share for %u
 After=network.target
 
 [Mount]
-What=nas:/var/mnt/bender/cloud/%u
-Where=~/.mnt/mcgeecloud
+What=nas:/var/mnt/shares/cloud/%u
+Where=/var/mnt/mcgeecloud/%u
 Type=nfs4
 Options=sec=krb5p
 
