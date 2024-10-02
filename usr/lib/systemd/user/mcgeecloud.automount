@@ -1,9 +1,10 @@
 [Unit]
-Description=User Automount for mcgeecloud NFS share
+Description=Automount NFS Share for mcgeecloud
+Requires=network-online.target
+After=network-online.target
 
 [Automount]
-Where=/var/mnt/mcgeecloud/%u
-TimeoutIdleSec=60
+Where=%h/.mnt/mcgeecloud
 
 [Install]
 WantedBy=default.target

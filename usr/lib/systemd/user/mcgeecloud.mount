@@ -1,12 +1,13 @@
 [Unit]
-Description=Mount for mcgeecloud NFS share for %u
-After=network.target
+Description=Mount NFS Share for mcgeecloud
+Requires=network-online.target
+After=network-online.target
 
 [Mount]
-What=nas:/var/mnt/shares/cloud/%u
-Where=/var/mnt/mcgeecloud/%u
-Type=nfs4
-Options=sec=krb5p
+What=nas:/mnt/shares/mcgeecloud
+Where=%h/.mnt/mcgeecloud
+Type=nfs
+Options=defaults
 
 [Install]
 WantedBy=default.target
