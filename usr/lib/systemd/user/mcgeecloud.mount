@@ -7,7 +7,7 @@ After=network-online.target
 What=nas:/var/mnt/bender/shares/%i/mcgeecloud
 Where=/home/%i/.mnt/mcgeecloud
 Type=nfs
-Options=defaults,rw,sec=krb5p,nosuid,x-gvfs-show
+Options=defaults,rw,sec=krb5p,nosuid
 
 [Install]
 WantedBy=multi-user.target
