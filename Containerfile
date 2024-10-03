@@ -51,10 +51,13 @@ ADD packages.json /tmp/packages.json
 ADD packages.sh /tmp/
 RUN sh /tmp/packages.sh
 
-# post install (enabled services, fonts, timeouts, firstboot, remove shortcuts, commit)
+# post install (enabled services, directories, fonts, timeouts, firstboot, remove shortcuts, commit)
 RUN systemctl enable dconf-update.service && \
     systemctl enable rpm-ostree-countme.timer && \
     systemctl enable podman.socket && \
+    systemctl enable cachefilesd && \
+    mkdir /var/cache/fscache && \
+    chcon -R -t cachefiles_kernel_t /var/cache/fscache && \
 #    systemctl enable home-%u-mcgeecloud.automount && \
 #    systemctl enable tuned.service && \
     fc-cache -f /usr/share/fonts/inputmono && \
