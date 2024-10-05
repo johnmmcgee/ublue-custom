@@ -56,7 +56,6 @@ RUN systemctl enable dconf-update.service && \
     systemctl enable rpm-ostree-countme.timer && \
     systemctl enable podman.socket && \
     systemctl enable cachefilesd && \
-    mkdir /var/cache/fscache && \
 #    chcon -R -t cachefiles_kernel_t /var/cache/fscache && \
 #    restorecon -R /var/cache/fscache
 #    systemctl enable home-%u-mcgeecloud.automount && \
