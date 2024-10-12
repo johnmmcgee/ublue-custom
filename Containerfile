@@ -31,6 +31,15 @@ RUN  wget https://copr.fedorainfracloud.org/coprs/che/nerd-fonts/repo/fedora-"${
 #            ptyxis && \
 #        rm -f /etc/yum.repos.d/_copr_kylegospo-prompt.repo \
 #    ; fi
+# Add vscode repository file
+RUN echo -e '[code]\n\
+	name=Visual Studio Code\n\
+	baseurl=https://packages.microsoft.com/yumrepos/vscode\n\
+	enabled=1\n\
+	gpgcheck=1\n\
+	gpgkey=https://packages.microsoft.com/keys/microsoft.asc' \
+	> /etc/yum.repos.d/vscode.repo
+
 # akmods
 COPY --from=ghcr.io/ublue-os/akmods:${AKMODS_SUFFIX}-${FEDORA_MAJOR_VERSION} /rpms /tmp/akmods-rpms
 RUN sed -i 's@enabled=0@enabled=1@g' /etc/yum.repos.d/_copr_ublue-os-akmods.repo && \
