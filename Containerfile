@@ -16,7 +16,8 @@ ARG FEDORA_MAJOR_VERSION="${FEDORA_MAJOR_VERSION}"
 COPY system_files/ /
 
 # 3rd party repos we may wish to keep
-RUN  wget https://copr.fedorainfracloud.org/coprs/che/nerd-fonts/repo/fedora-"${FEDORA_MAJOR_VERSION}"/che-nerd-fonts-fedora-"${FEDORA_MAJOR_VERSION}".repo -O /etc/yum.repos.d/_copr_che-nerd-fonts-"${FEDORA_MAJOR_VERSION}".repo
+RUN  wget https://copr.fedorainfracloud.org/coprs/che/nerd-fonts/repo/fedora-"${FEDORA_MAJOR_VERSION}"/che-nerd-fonts-fedora-"${FEDORA_MAJOR_VERSION}".repo -O /etc/yum.repos.d/_copr_che-nerd-fonts-"${FEDORA_MAJOR_VERSION}".repo && \
+     wget https://copr.fedorainfracloud.org/coprs/jbcrawford/kanidm/repo/fedora-"${FEDORA_MAJOR_VERSION}"/jbcrawford-kanidm-fedora-"${FEDORA_MAJOR_VERSION}".repo -O /etc/yum.repos.d/_copr_jbcrawford-kanidm-"${FEDORA_MAJOR_VERSION}".repo
 
 # ptyxis
 #RUN if [ ${FEDORA_MAJOR_VERSION} -ge "39" ]; then \
